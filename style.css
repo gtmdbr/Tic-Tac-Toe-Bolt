@@ -5,7 +5,7 @@
     --cell-border: #FFFB009C;
     --text-color: #e0e0ff;
     --accent-color-x: #00f2ea; /* Neon cyan for X */
-    --accent-color-o: #FF408170; /* Neon pink for O */
+    --accent-color-o: #FF4081; /* Neon pink for O */
     --glow-color-x: rgba(0, 242, 234, 0.7);
     --glow-color-o: rgba(255, 64, 129, 0.7);
     --glow-color-win: rgba(255, 255, 0, 0.8); /* Yellow glow for win */
