@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tac Toe Bolt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Tik Tac Toe<span class="bolt-text"> Bolt </span>...</h1>
+
+        <div class="player-setup">
+            <div class="player-input">
+                <label for="player1">Player X:</label>
+                <input type="text" id="player1" value="Player 1">
+            </div>
+            <div class="player-input">
+                <label for="player2">Player O:</label>
+                <input type="text" id="player2" value="Player 2">
+            </div>
+        </div>
+
+        <div id="status-area" class="status">Player 1's Turn (X)</div>
+
+        <div id="game-board" class="game-board">
+            </div>
+
+        <div class="controls">
+            <button id="restart-btn">Restart Game</button>
+            <button id="how-to-play-btn">How to Play</button>
+        </div>
+    </div>
+
+    <div id="how-to-play-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="hideModal('how-to-play-modal')">&times;</span>
+            <h2>How to Play Tik Tac Toe Bolt</h2>
+            <ul>
+                <li>The game is played on a 3x3 grid.</li>
+                <li>Player 1 is X, Player 2 is O. Players take turns placing their sign in an empty cell.</li>
+                <li><strong>The Bolt Rule:</strong> Each player can only have **3** of their signs on the board at any time.</li>
+                <li>When a player places their **4th** sign, their **oldest** sign (the 1st one they placed) disappears from the board.</li>
+                <li>The first player to get 3 of their signs in a row (horizontally, vertically, or diagonally) wins.</li>
+                <li>If all cells are filled and no one has won, the game is a draw.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="winner-modal" class="modal hidden">
+        <div class="modal-content winner-announcement">
+             <span class="close-btn" onclick="hideModal('winner-modal')">&times;</span>
+            <h2 id="winner-message"></h2>
+            <p>Final Board State:</p>
+            <div id="final-board-display" class="mini-board">
+                </div>
+            <button onclick="hideModal('winner-modal'); startGame();">Play Again?</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
