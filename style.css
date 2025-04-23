@@ -333,22 +333,6 @@ button:active {
 .winner-announcement button {
     margin-top: 20px;
 }
-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.4);
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
-            padding: 0.1rem;
-            height: 1.5rem;
-            color: white;
-            font-size: 0.6em;
-            text-align: center;
-            border-top: 1px solid #FFFFFF33;
-            z-index: 10;
-        }
 
 /* Mini board for winner display */
 .mini-board {
@@ -373,6 +357,22 @@ footer {
     font-size: 1rem;
     font-weight: bold;
     border-radius: 3px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: 0.1rem;
+    height: 1.5rem;
+    color: white;
+    font-size: 0.6em;
+    text-align: center;
+    border-top: 1px solid #FFFFFF33;
+    z-index: 10;
 }
 .mini-cell.x { color: var(--accent-color-x); }
 .mini-cell.o { color: var(--accent-color-o); }
