@@ -15,6 +15,25 @@
     --font-main: 'Orbitron', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
+/* For mobile devices (portrait mode) */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  body {
+    transform: rotate(0deg); /* Default orientation */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling in landscape */
+  }
+}
+
+/* For larger screens (landscape allowed) */
+@media screen and (min-width: 769px) {
+  body {
+    transform: rotate(0deg); /* Default orientation */
+    width: 100%;
+    height: 100vh;
+    overflow: visible; /* Allow scrolling if needed */
+  }
+}
 
 * {
     margin: 0;
