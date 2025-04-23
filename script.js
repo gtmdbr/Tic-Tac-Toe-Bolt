@@ -145,7 +145,7 @@ function announceWinner(winner, winningLine = []) {
         // Ensure latest names are used for the announcement
         playerNames['X'] = player1Input.value.trim() || 'Player 1';
         playerNames['O'] = player2Input.value.trim() || 'Player 2';
-        message = `${playerNames[winner]} Wins! (${winner})`;
+        message = `${playerNames[winner]} Wins!`;
         statusArea.innerText = message;
         statusArea.style.color = winner === 'X' ? 'var(--accent-color-x)' : 'var(--accent-color-o)';
 
