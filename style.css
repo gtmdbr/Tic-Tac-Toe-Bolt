@@ -213,11 +213,10 @@ h1 {
     border: 2px solid rgba(255, 249, 0, 0.57);
     z-index: 2;
     position: relative;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: transform 0.2s ease;
     font-family: var(--font-main);
 }
 .cell:hover {
-    background: rgb(74, 74, 112); /* Lighter hover */
     transform: scale(1.03);
 }
 
