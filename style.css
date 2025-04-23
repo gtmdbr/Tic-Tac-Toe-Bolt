@@ -1,18 +1,18 @@
 :root {
-    --bg-color: #1a1a2e; /* Dark blue/purple */
-    --board-bg: rgba(26, 26, 46, 0.8); /* Slightly transparent board */
+    --bg-color: #360E46; /* Dark blue/purple */
+    --board-bg: rgba(26, 26, 46, 0.4); /* Slightly transparent board */
     --cell-bg: rgba(40, 40, 60, 0.7);
-    --cell-border: #4a4a70;
+    --cell-border: #FFFB009C;
     --text-color: #e0e0ff;
     --accent-color-x: #00f2ea; /* Neon cyan for X */
-    --accent-color-o: #ff4081; /* Neon pink for O */
+    --accent-color-o: #FF408170; /* Neon pink for O */
     --glow-color-x: rgba(0, 242, 234, 0.7);
     --glow-color-o: rgba(255, 64, 129, 0.7);
     --glow-color-win: rgba(255, 255, 0, 0.8); /* Yellow glow for win */
     --button-bg: #4a00e0; /* Purple */
     --button-hover-bg: #8e2de2; /* Lighter purple */
     --modal-bg: rgba(15, 15, 30, 0.95); /* Darker translucent modal */
-    --font-main: 'Orbitron', sans-serif;
+    --font-main: 'Tilt Neon', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
 
@@ -31,12 +31,21 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 75%, transparent 75%, transparent);
+    z-index: -1;
+    background-image: linear-gradient(45deg, rgba(128, 126, 45, 0.2) 25%, transparent 25%, transparent 50%, rgba(128, 126, 45, 0.2) 50%, rgba(128, 126, 45, 0.2) 75%, transparent 75%, transparent);
     background-size: 50px 50px; /* Subtle background pattern */
+    animation: c1 20s infinite linear;
+}
+
+@keyframes c1 {
+    100%{
+        background-position: 0% 100%;
+    }
 }
 
 .game-container {
     background: var(--board-bg);
+    -webkit-backdrop-filter: blur(2px);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -52,7 +61,7 @@ h1 {
     color: var(--text-color);
     margin-bottom: 20px;
     font-size: 2.5rem;
-    text-shadow: 0 0 10px var(--accent-color-x), 0 0 20px var(--accent-color-o);
+    text-shadow: 0 0 10px var(--accent-color-x), 0 0 15px var(--accent-color-o);
 }
 
 .bolt-text {
@@ -64,13 +73,13 @@ h1 {
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
     text-shadow:
       0 0 4px var(--accent-color-o),
-      0 0 11px var(--accent-color-o),
-      0 0 16px var(--accent-color-o),
-      0 0 11px var(--accent-color-o),
+      0 0 10px var(--accent-color-o),
+      0 0 6px var(--accent-color-o),
+      0 0 0px var(--accent-color-o),
       0 0 8px var(--accent-color-o),
       0 0 5px var(--accent-color-o),
-      0 0 11px var(--accent-color-o),
-      0 0 19px var(--accent-color-o);
+      0 0 0px var(--accent-color-o),
+      0 0 6px var(--accent-color-o);
     opacity: 1;
   }
   20%, 24%, 55% {
