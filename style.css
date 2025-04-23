@@ -1,7 +1,7 @@
 :root {
     --bg-color: #360E46; /* Dark blue/purple */
-    --board-bg: rgba(26, 26, 46, 0.4); /* Slightly transparent board */
-    --cell-bg: rgba(40, 40, 60, 0.7);
+    --board-bg: rgba(26, 26, 46, 1); /* Slightly transparent board */
+    --cell-bg: rgb(40, 40, 60);
     --cell-border: #FFFB009C;
     --text-color: #e0e0ff;
     --accent-color-x: #00f2ea; /* Neon cyan for X */
@@ -29,8 +29,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     min-height: 100vh;
+    overflow: hidden;
     padding: 20px;
     z-index: -1;
     background-image: linear-gradient(45deg, rgba(128, 126, 45, 0.2) 25%, transparent 25%, transparent 50%, rgba(128, 126, 45, 0.2) 50%, rgba(128, 126, 45, 0.2) 75%, transparent 75%, transparent);
@@ -46,15 +46,46 @@ body {
 
 .game-container {
     background: var(--board-bg);
-    -webkit-backdrop-filter: blur(2px);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: center;
     max-width: 500px;
     width: 95%;
-    border: 1px solid var(--cell-border);
-    backdrop-filter: blur(5px); /* Frosted glass effect */
+    position: relative;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.game-container::after, .game-container::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),#ff4545,#00ff99,#006aff,#ff0095,#ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -10;
+    padding: 6px;
+    border-radius: 20px;
+    animation: 3s spin linear infinite;
+}
+
+.game-container::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
 }
 
 h1 {
@@ -73,7 +104,7 @@ h1 {
 @keyframes bolt-flicker {
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
     text-shadow:
-      0 0 0px var(--accent-color-o),
+      0 0 4px var(--accent-color-o),
       0 0 10px var(--accent-color-o),
       0 0 6px var(--accent-color-o),
       0 0 0px var(--accent-color-o),
@@ -135,14 +166,43 @@ h1 {
     width: 300px; /* Adjust size as needed */
     height: 300px; /* Make it square */
     margin: 20px auto;
-    background-color: rgba(0,0,0,0.2);
+    background: rgba(43, 43, 92, 1);
     padding: 10px;
+    z-index: 5;
+    position: relative;
     border-radius: 10px;
 }
 
+.game-board::after, .game-board::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),#ff4545,#00ff99,#006aff,#ff0095,#ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    padding: 1px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.game-board::before{
+    filter: blur(1rem);
+    opacity: 0.9;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
 .cell {
-    background-color: var(--cell-bg);
-    border: 2px solid var(--cell-border);
+    background-color: rgba(43, 43, 92, 1);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -150,13 +210,13 @@ h1 {
     font-size: 3rem; /* Adjust size */
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid rgba(255, 249, 0, 0.57);
+    z-index: 2;
     position: relative;
     font-family: var(--font-main);
 }
-
 .cell:hover {
-    background-color: rgba(74, 74, 112, 0.8); /* Lighter hover */
+    background-color: rgb(74, 74, 112); /* Lighter hover */
     transform: scale(1.03);
 }
 
@@ -428,3 +488,4 @@ footer {
         width: 90px;
      }
 }
+
