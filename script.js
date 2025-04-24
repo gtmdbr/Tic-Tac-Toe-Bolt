@@ -10,12 +10,12 @@ const winnerModal = document.getElementById('winner-modal');
 const winnerMessage = document.getElementById('winner-message');
 const finalBoardDisplay = document.getElementById('final-board-display');
 
-audio = new Audio("/mixkit-video-game-win-2016.wav");
+audio = new Audio("/win.wav");
 
 var mouseclick1 = new Audio();
-mouseclick1.src = "/mixkit-modern-technology-select-3124_[cut_0sec].wav";
+mouseclick1.src = "/S1.wav";
 var mouseclick2 = new Audio();
-mouseclick2.src = "/mixkit-game-quick-warning-notification-268_[cut_1sec].wav";
+mouseclick2.src = "/S2.wav";
 
 let board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
