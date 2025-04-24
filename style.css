@@ -481,6 +481,20 @@ transform: scale(1.05);
 transform: scale(0.95);
 }
 
+/* Optional: Style for instructions */
+#install-instructions {
+display: none;
+position: fixed;
+bottom: 80px;
+right: 20px;
+background-color: #fff;
+border: 1px solid #ccc;
+padding: 10px;
+border-radius: 5px;
+max-width: 200px;
+font-size: 14px;
+z-index: 1000;
+}
 
 @media (max-width: 600px) {
     h1 {
