@@ -10,6 +10,13 @@ const winnerModal = document.getElementById('winner-modal');
 const winnerMessage = document.getElementById('winner-message');
 const finalBoardDisplay = document.getElementById('final-board-display');
 
+audio = new Audio("/mixkit-video-game-win-2016.wav");
+
+var mouseclick1 = new Audio();
+mouseclick1.src = "/mixkit-modern-technology-select-3124_[cut_0sec].wav";
+var mouseclick2 = new Audio();
+mouseclick2.src = "/mixkit-game-quick-warning-notification-268_[cut_1sec].wav";
+
 let board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let gameActive = true;
@@ -157,6 +164,9 @@ function announceWinner(winner, winningLine = []) {
 
     winnerMessage.innerText = message;
     displayFinalBoard(winningLine);
+    audio.play().catch(error => {
+        console.log("Audio playback failed:", error);
+    });
     showModal('winner-modal');
 }
 
