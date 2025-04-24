@@ -242,5 +242,31 @@ window.addEventListener('click', (event) => {
     }
 });
 
+const addButton = document.getElementById('add-button');
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      addButton.style.display = 'block';
+    });
+
+    addButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const choiceResult = await deferredPrompt.userChoice;
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+        addButton.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('App was installed');
+    });
+
 // Initial setup
 startGame(); // Calls createBoard and updateStatus
