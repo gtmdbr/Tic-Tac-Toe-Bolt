@@ -32,14 +32,14 @@
             </div>
 
         <div class="controls">
-            <button id="restart-btn" onclick="mouseclick1.play()">Restart Game</button>
-            <button id="how-to-play-btn" onclick="mouseclick1.play()">How to Play</button>
+            <button id="restart-btn" onmousedown="mouseclick1.play()">Restart Game</button>
+            <button id="how-to-play-btn" onmousedown="mouseclick1.play()">How to Play</button>
         </div>
     </div>
 
     <div id="how-to-play-modal" class="modal hidden">
         <div class="modal-content">
-            <span class="close-btn" onclick="mouseclick1.play()" onclick="hideModal('how-to-play-modal')">&times;</span>
+            <span class="close-btn" onmousedown="mouseclick1.play()" onclick="hideModal('how-to-play-modal')">&times;</span>
             <h2>How to Play Tik Tac Toe Bolt</h2>
             <ul>
                 <li>The game is played on a 3x3 grid.</li>
@@ -53,12 +53,12 @@
 
     <div id="winner-modal" class="modal hidden">
         <div class="modal-content winner-announcement">
-             <span class="close-btn" onclick="mouseclick1.play()" onclick="hideModal('winner-modal')">&times;</span>
+             <span class="close-btn" onmousedown="mouseclick1.play()" onclick="hideModal('winner-modal')">&times;</span>
             <h2 id="winner-message"></h2>
             <p>Final Board State:</p>
             <div id="final-board-display" class="mini-board">
                 </div>
-            <button onclick="mouseclick1.play()" onclick="hideModal('winner-modal'); startGame();">Play Again?</button>
+            <button onmousedown="mouseclick1.play()" onclick="hideModal('winner-modal'); startGame();">Play Again?</button>
         </div>
     </div>
     <footer>
