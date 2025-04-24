@@ -61,12 +61,61 @@
             <button onmousedown="mouseclick1.play()" onclick="hideModal('winner-modal'); startGame();">Play Again?</button>
         </div>
     </div>
-    <button id="add-button" style="display: none;">Add to Home screen</button>
-
+   <button id="add-button">Add to Home Screen</button>
     <footer>
             <h2>Developed by GTMDBR</h2>
     </footer>
+   
 
     <script src="script.js"></script>
+   <script src="register-service-worker.js"></script>
+   <script>
+   if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered:', registration);
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+  });
+}
+let deferredPrompt;
+const addButton = document.getElementById('add-button');
+
+// Check if the app is already installed (standalone mode)
+const isInstalled = window.matchMedia('(display-mode: standalone)').matches || 
+window.navigator.standalone === true;
+
+// Only show the button if the app is not installed
+if (!isInstalled) {
+window.addEventListener('beforeinstallprompt', (event) => {
+event.preventDefault();
+deferredPrompt = event;
+addButton.style.display = 'block';
+});
+}
+
+addButton.addEventListener('click', async () => {
+if (deferredPrompt) {
+deferredPrompt.prompt();
+const choiceResult = await deferredPrompt.userChoice;
+if (choiceResult.outcome === 'accepted') {
+console.log('User accepted the A2HS prompt');
+} else {
+console.log('User dismissed the A2HS prompt');
+}
+deferredPrompt = null;
+addButton.style.display = 'none';
+}
+});
+
+// Log when the app is installed
+window.addEventListener('appinstalled', () => {
+console.log('App was installed');
+addButton.style.display = 'none';
+});
+   </script>
 </body>
 </html>
