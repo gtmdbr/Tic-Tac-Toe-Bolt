@@ -10,12 +10,12 @@ const winnerModal = document.getElementById('winner-modal');
 const winnerMessage = document.getElementById('winner-message');
 const finalBoardDisplay = document.getElementById('final-board-display');
 
-audio = new Audio("/win.wav");
+audio = new Audio("win.wav");
 
 var mouseclick1 = new Audio();
-mouseclick1.src = "/S1.wav";
+mouseclick1.src = "S1.wav";
 var mouseclick2 = new Audio();
-mouseclick2.src = "/S2.wav";
+mouseclick2.src = "S2.wav";
 
 let board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
