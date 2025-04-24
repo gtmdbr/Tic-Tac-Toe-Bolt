@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
+        <audio id="winSound" src="/mixkit-video-game-mystery-alert-234.wav" preload="auto"> </audio>
     <div class="game-container">
         <h1>Tik Tac Toe<span class="bolt-text"> Bolt... </span></h1>
 
@@ -27,18 +28,18 @@
 
         <div id="status-area" class="status">Player 1's Turn (X)</div>
 
-        <div id="game-board" class="game-board">
+        <div id="game-board" class="game-board" onclick="mouseclick2.play()">
             </div>
 
         <div class="controls">
-            <button id="restart-btn">Restart Game</button>
-            <button id="how-to-play-btn">How to Play</button>
+            <button id="restart-btn" onclick="mouseclick1.play()">Restart Game</button>
+            <button id="how-to-play-btn" onclick="mouseclick1.play()">How to Play</button>
         </div>
     </div>
 
     <div id="how-to-play-modal" class="modal hidden">
         <div class="modal-content">
-            <span class="close-btn" onclick="hideModal('how-to-play-modal')">&times;</span>
+            <span class="close-btn" onclick="mouseclick1.play()" onclick="hideModal('how-to-play-modal')">&times;</span>
             <h2>How to Play Tik Tac Toe Bolt</h2>
             <ul>
                 <li>The game is played on a 3x3 grid.</li>
@@ -52,12 +53,12 @@
 
     <div id="winner-modal" class="modal hidden">
         <div class="modal-content winner-announcement">
-             <span class="close-btn" onclick="hideModal('winner-modal')">&times;</span>
+             <span class="close-btn" onclick="mouseclick1.play()" onclick="hideModal('winner-modal')">&times;</span>
             <h2 id="winner-message"></h2>
             <p>Final Board State:</p>
             <div id="final-board-display" class="mini-board">
                 </div>
-            <button onclick="hideModal('winner-modal'); startGame();">Play Again?</button>
+            <button onclick="mouseclick1.play()" onclick="hideModal('winner-modal'); startGame();">Play Again?</button>
         </div>
     </div>
     <footer>
