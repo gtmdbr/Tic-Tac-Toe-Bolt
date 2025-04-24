@@ -1,37 +1,35 @@
 :root {
-    --bg-color: #360E46; /* Dark blue/purple */
-    --board-bg: rgba(26, 26, 46, 1); /* Slightly transparent board */
+    --bg-color: #360E46; 
+    --board-bg: rgba(26, 26, 46, 1); 
     --cell-bg: rgb(40, 40, 60);
     --cell-border: #FFFB009C;
     --text-color: #e0e0ff;
-    --accent-color-x: #00f2ea; /* Neon cyan for X */
-    --accent-color-o: #FF4081; /* Neon pink for O */
+    --accent-color-x: #00f2ea; 
+    --accent-color-o: #FF4081; 
     --glow-color-x: rgba(0, 242, 234, 0.7);
     --glow-color-o: rgba(255, 64, 129, 0.7);
-    --glow-color-win: rgba(255, 255, 0, 0.8); /* Yellow glow for win */
-    --button-bg: #4a00e0; /* Purple */
-    --button-hover-bg: #8e2de2; /* Lighter purple */
-    --modal-bg: rgba(15, 15, 30, 0.95); /* Darker translucent modal */
+    --glow-color-win: rgba(255, 255, 0, 0.8); 
+    --button-bg: #4a00e0; 
+    --button-hover-bg: #8e2de2; 
+    --modal-bg: rgba(15, 15, 30, 0.95); 
     --font-main: 'Orbitron', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
-/* For mobile devices (portrait mode) */
 @media screen and (max-width: 768px) and (orientation: portrait) {
   body {
-    transform: rotate(0deg); /* Default orientation */
+    transform: rotate(0deg); 
     width: 100%;
     height: 100vh;
-    overflow: hidden; /* Prevent scrolling in landscape */
+    overflow: hidden; 
   }
 }
 
-/* For larger screens (landscape allowed) */
 @media screen and (min-width: 769px) {
   body {
-    transform: rotate(0deg); /* Default orientation */
+    transform: rotate(0deg); 
     width: 100%;
     height: 100vh;
-    overflow: visible; /* Allow scrolling if needed */
+    overflow: visible; 
   }
 }
 
@@ -42,7 +40,9 @@
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: "Cal Sans", sans-serif;
+  		font-weight: 400;
+  		font-style: normal;
     background-color: var(--bg-color);
     color: var(--text-color);
     display: flex;
@@ -53,7 +53,7 @@ body {
     padding: 20px;
     z-index: -1;
     background-image: linear-gradient(45deg, rgba(128, 126, 45, 0.2) 25%, transparent 25%, transparent 50%, rgba(128, 126, 45, 0.2) 50%, rgba(128, 126, 45, 0.2) 75%, transparent 75%, transparent);
-    background-size: 50px 50px; /* Subtle background pattern */
+    background-size: 50px 50px; 
     animation: c1 20s infinite linear;
 }
 
@@ -166,13 +166,13 @@ h1 {
     color: var(--text-color);
     border-radius: 4px;
     font-size: 0.9rem;
-    width: 100px; /* Adjust as needed */
+    width: 100px; 
 }
 
 .status {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    min-height: 1.5em; /* Prevent layout shift */
+    min-height: 1.5em; 
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -182,8 +182,8 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 10px;
-    width: 300px; /* Adjust size as needed */
-    height: 300px; /* Make it square */
+    width: 300px; 
+    height: 300px; 
     margin: 20px auto;
     background: rgba(43, 43, 92, 1);
     padding: 10px;
@@ -226,7 +226,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem; /* Adjust size */
+    font-size: 3rem; 
     font-weight: bold;
     cursor: pointer;
     border: 2px solid rgba(255, 249, 0, 0.57);
@@ -252,7 +252,7 @@ h1 {
 }
 
 .cell.winning {
-    background-color: rgba(255, 255, 0, 0.3); /* Highlight winning cells */
+    background-color: rgba(255, 255, 0, 0.3); 
     animation: glow-win 1.5s infinite alternate;
 }
 
@@ -311,7 +311,7 @@ button:active {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.7); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -338,7 +338,7 @@ button:active {
     width: 500px;
     text-align: left;
     animation: modal-appear 0.4s ease-out forwards;
-    transform: scale(0.8); /* Start smaller for animation */
+    transform: scale(0.8); 
     color: var(--text-color);
     backdrop-filter: blur(10px);
 }
@@ -390,10 +390,9 @@ button:active {
 }
 
 .hidden {
-    display: none; /* Use JS to toggle this, but keep for initial state */
+    display: none; 
 }
 
-/* Winner Announcement */
 .winner-announcement {
     text-align: center;
 }
@@ -414,10 +413,9 @@ button:active {
     margin-top: 20px;
 }
 
-/* Mini board for winner display */
 .mini-board {
     display: grid;
-    grid-template-columns: repeat(3, 30px); /* Smaller cells */
+    grid-template-columns: repeat(3, 30px); 
     gap: 3px;
     margin: 15px auto;
     width: fit-content;
@@ -459,7 +457,6 @@ footer {
 .mini-cell.winning { background-color: rgba(255, 255, 0, 0.4); }
 
 
-/* Responsiveness */
 @media (max-width: 600px) {
     h1 {
         font-size: 2rem;
