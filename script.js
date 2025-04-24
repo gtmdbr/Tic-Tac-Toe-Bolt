@@ -13,7 +13,7 @@ const finalBoardDisplay = document.getElementById('final-board-display');
 audio = new Audio("win.wav");
 
 var mouseclick1 = new Audio();
-mouseclick1.src = "S1.wav";
+mouseclick1.src = "http://www.noiseaddicts.com/samples_1w72b820/3724.mp3";
 var mouseclick2 = new Audio();
 mouseclick2.src = "S2.wav";
 
